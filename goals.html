@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Goals as a Student!</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+  <header><h1>Welcome to My Personal Website!</h1></header>
+  
+  <nav>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> <span>| HOME</span></a></li>
+            
+            <li class="dropdown"><a href="#" class="dropbtn" class="active"><i class="fas fa-info-circle"></i> <span>| ABOUT</span></a>           
+            <div class="dropdown-content">
+                <a href="skills.html"> Skills I'm Developing</a>
+                <a href="goals.html" class="active">My Goals as a Student</a>
+                <a href="funfacts.html">Fun Facts About Me</a>
+            </div>
+            </li>
+            
+            <li><a href="gallery.html"><i class="fas fa-image"></i> <span>| GALLERY</span></a></li>
+            <li><a href="contact.html"><i class="fas fa-address-card"></i> <span>| CONTACT</span></a></li>
+            <li><a href="javascript:void(0);" class="logout-button" onclick="confirmLogout()"><i class="fas fa-sign-out-alt"></i> <span>| LOG OUT</span></a>
+            </li>
+        </ul>
+    </nav>
+  
+  <section id="section2"></section>
+  <section id="drop">
+    <h2>My Goals as a Student</h2>
+    <p style="text-align: center;">Here are the aspirations I'm passionately pursuing!</p>
+    <div class="goal-grid">
+      <div class="goal-card" onclick="toggleGoalDetails(1)">
+        <div class="goal-header" style="background-color: #6a1b9a;"><strong>Short-Term Goals</strong></div>
+        <p><strong>Enhance my web development skills.</strong></p>
+        <div class="goal-details" id="goal1-details">
+          <p>By focusing on these short-term goals, I am confident that I will enhance my web development skills and set a solid foundation for my future endeavors in the tech industry.</p>
+        </div>
+      </div>
+      <div class="goal-card" onclick="toggleGoalDetails(1)">
+        <div class="goal-header" style="background-color: #0288d1;"><strong>Long-Term Goals</strong></div>
+        <p>Become a proficient front-end developer.</p>
+        <div class="goal-details" id="goal2-details">
+          <p>By setting these long-term goals, I am dedicated to evolving as a front-end developer, contributing impactful projects, and becoming a valuable asset in the technology landscape.</p>
+        </div>
+      </div>
+      <div class="goal-card" onclick="toggleGoalDetails(2)">
+        <div class="goal-header" style="background-color: #ffb300;"><strong>Personal Development</strong></div>
+        <p>Investing in Myself: My Personal Development Journey</p>
+        <div class="goal-details" id="goal3-details">
+          <p>I strive to become a more well-rounded individual, equipped to handle challenges and make meaningful contributions in both my personal and professional life.</p>
+        </div>
+      </div>
+      <div class="goal-card" onclick="toggleGoalDetails(2)">
+        <div class="goal-header" style="background-color: #e53935;"><strong>Career Goals</strong></div>
+        <p>As I navigate my professional journey, I am committed to setting and achieving clear career goals that reflects my passions and aspirations.</p>
+        <div class="goal-details" id="goal4-details">
+          <p>My goals is to grow into a leadership position where I can guide teams, drive projects to success, and contribute to strategic decision-making.
+            I aim to develop my leadership skills through experience and by seeking out opportunities to lead initiatives within my current role.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+        <p>&copy; 2024 Daven, All rights reserved.</p>
+    </footer>
+    <div class="footer-divider"></div>
+    
+    
+  
+  <script>
+  
+  function toggleGoalDetails(group) {
+    const details1 = document.getElementById('goal' + (group * 2 - 1) + '-details');
+    const details2 = document.getElementById('goal' + (group * 2) + '-details');
+    
+    details1.classList.toggle('active');
+    details2.classList.toggle('active');
+  }
+  
+  </script>
+  <script>
+        function confirmLogout() {
+            const confirmLogout = confirm("Are You sure you want to Log out?");
+            if (confirmLogout) {
+                localStorage.removeItem('isLoggedIn');
+                
+                window.location.href = 'login.html';
+                } else {
+                    return;
+                }
+            }
+    </script>
+</body>
+</html>

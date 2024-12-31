@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fun Facts about Me!</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+  <header><h1>Welcome to My Personal Website!</h1></header>
+  
+  <nav>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> <span>| HOME</span></a></li>
+            
+            <li class="dropdown"><a href="#" class="dropbtn" class="active"><i class="fas fa-info-circle"></i> <span>| ABOUT</span></a>           
+            <div class="dropdown-content">
+                <a href="skills.html"> Skills I'm Developing</a>
+                <a href="goals.html">My Goals as a Student</a>
+                <a href="funfacts.html" class="active">Fun Facts About Me</a>
+            </div>
+            </li>
+            
+            <li><a href="gallery.html"><i class="fas fa-image"></i> <span>| GALLERY</span></a></li>
+            <li><a href="contact.html"><i class="fas fa-address-card"></i> <span>| CONTACT</span></a></li>
+            <li><a href="javascript:void(0);" class="logout-button" onclick="confirmLogout()"><i class="fas fa-sign-out-alt"></i> <span>| LOG OUT</span></a>
+            </li>
+        </ul>
+    </nav>
+  
+  <section class="section2"></section>
+  <section id="drop">
+    <h2>Fun Facts about Me</h2>
+    <p>Hello and Welcome! This section is all about fun and fascinating tidbits that define me.
+      Discover my enthusiasm for coding, my quest to find the best coffee spots, and the hobbies that brings joy to my life.
+      Whether it's mixing music with programming or setting ambitious goals, these fun facts offer a sneak peek into my world.</p>
+    <div class="funfact-container">
+      <div class="funfact-card">
+        <div class="funfact-inner">
+          <div class="funfact-front">
+            <p>I love HTML!</p>
+          </div>
+          <div class="funfact-back">
+            <p>Website on the Go!</p>
+          </div>
+        </div>
+      </div><br>
+      <div class="funfact-card">
+        <div class="funfact-inner">
+          <div class="funfact-front">
+            <p>Coffee Explorer!</p>
+          </div>
+          <div class="funfact-back">
+            <p>I'm on a mission to try every coffee shop in my town!</p>
+          </div>
+        </div>
+      </div><br>
+      <div class="funfact-card">
+        <div class="funfact-inner">
+          <div class="funfact-front">
+            <p>Code + Music Combo!</p>
+          </div>
+          <div class="funfact-back">
+            <p>My best code happens when I'm listening to Chill and Beat!</p>
+          </div>
+        </div>
+      </div><br>
+      <div class="funfact-card">
+        <div class="funfact-inner">
+          <div class="funfact-front">
+            <p>Goal Setter!</p>
+          </div>
+          <div class="funfact-back">
+            <p>I keep a list of 100 things to achieve this year, from tiny wins to big dreams!</p>
+          </div>
+        </div>
+      </div><br>
+      <div class="funfact-card">
+        <div class="funfact-inner">
+          <div class="funfact-front">
+            <p>Fun Explorer!</p>
+          </div>
+          <div class="funfact-back">
+            <p>Fun is when exploring new things for knowledge and new learnings!</p>
+          </div>
+        </div>
+      </div><br>
+            <div class="funfact-card">
+        <div class="funfact-inner">
+          <div class="funfact-front">
+            <p>Your Friendly Classmate</p>
+          </div>
+          <div class="funfact-back">
+            <p>Hi, It's Daven! Let's get along!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+        <p>&copy; 2024 Daven, All rights reserved.</p>
+    </footer>
+    <div class="footer-divider"></div>
+    
+    
+  
+  <script>
+        function confirmLogout() {
+            const confirmLogout = confirm("Are You sure you want to Log out?");
+            if (confirmLogout) {
+                localStorage.removeItem('isLoggedIn');
+                
+                window.location.href = 'login.html';
+                } else {
+                    return;
+                }
+            }
+    </script>
+</body>
+</html>

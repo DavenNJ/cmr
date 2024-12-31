@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Personal Website</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+  <header><h1>Welcome to My Personal Website!</h1></header>
+  
+  <nav>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> <span>| HOME</span></a></li>
+            
+            <li class="dropdown"><a href="#" class="dropbtn"><i class="fas fa-info-circle"></i> <span>| ABOUT</span></a>           
+            <div class="dropdown-content">
+                <a href="skills.html"> Skills I'm Developing</a>
+                <a href="goals.html">My Goals as a Student</a>
+                <a href="funfacts.html">Fun Facts About Me</a>
+            </div>
+            </li>
+            
+            <li><a href="gallery.html" class="active"><i class="fas fa-image"></i> <span>| GALLERY</span></a></li>
+            <li><a href="contact.html"><i class="fas fa-address-card"></i> <span>| CONTACT</span></a></li>
+            <li><a href="javascript:void(0);" class="logout-button" onclick="confirmLogout()"><i class="fas fa-sign-out-alt"></i> <span>| LOG OUT</span></a>
+            </li>
+        </ul>
+    </nav>
+  
+  <section class="section2"></section>
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <p style="text-align: center;">Check out some of the images from my recent photography:</p>
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="images/pic1.jpg" alt="Photography1" class="thumbnail" onclick="openLightbox(); changeImage('images/pic1.jpg')">
+        <p class="image-description">Aesthetic Chair Sunlight</p>
+      </div>
+      
+      <div class="gallery-item">
+        <img src="images/pic2.jpg" alt="Photography2" class="thumbnail" onclick="openLightbox(); changeImage('images/pic2.jpg')">
+        <p class="image-description">KKOPI Night Portrait</p>
+      </div>
+      
+      <div class="gallery-item">
+        <img src="images/pic3.jpg" alt="Project Image 3" class="thumbnail" onclick="openLightbox(); changeImage('images/pic3.jpg')">
+        <p class="image-description">Tibiao Bakery's Lamp</p>
+      </div>
+      
+      <div class="gallery-item">
+        <img src="images/pic4.jpg" alt="Project Image 4" class="thumbnail" onclick="openLightbox(); changeImage('images/pic4.jpg')">
+        <p class="image-description">Post Lamp</p>
+      </div>
+      
+      <div class="gallery-item">
+        <img src="images/pic5.jpg" alt="Project Image 5" class="thumbnail" onclick="openLightbox(); changeImage('images/pic5.jpg')">
+        <p class="image-description">UA's Hallway</p>
+      </div>
+      
+      <div class="gallery-item">
+        <img src="images/pic6.jpg" alt="Project Image 6" class="thumbnail" onclick="openLightbox(); changeImage('images/pic6.jpg')">
+        <p class="image-description">Trees</p>
+      </div>
+      
+      <div class="gallery-item">
+        <img src="images/pic7.jpg" alt="Project Image 7" class="thumbnail" onclick="openLightbox(); changeImage('images/pic7.jpg')">
+        <p class="image-description">Bench and Tables</p>
+      </div>
+      
+      <div class="gallery-item">
+        <img src="images/pic8.jpg" alt="Project Image 8" class="thumbnail" onclick="openLightbox(); changeImage('images/pic8.jpg')">
+        <p class="image-description">Bench and Tables 2</p>
+      </div>
+      
+      <div class="gallery-item">
+        <img src="images/pic9.jpg" alt="Project Image 9" class="thumbnail" onclick="openLightbox(); changeImage('images/pic9.jpg')">
+        <p class="image-description">UA's Field'</p>
+      </div>
+      
+    </div>
+    <div id="lightbox" class="lightbox">
+      <span class="close" onclick="document.getElementById('lightbox').style.display = 'none';">&times;</span>
+      <img class="lightbox-content" id="lightboxImage" src="">
+      <a class="prev" onclick="changeImageDirection(-1)">&#10094;</a>
+<a class="next" onclick="changeImageDirection(1)">&#10095;</a>
+    </div>
+  </section>
+  
+  <footer>
+        <p>&copy; 2024 Daven, All rights reserved.</p>
+    </footer>
+    <div class="footer-divider"></div>
+    
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close" onclick="event.stopPropagation(); closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightboxImage" src="" alt="">
+    </div>    
+  
+  <script>
+              
+  let currentImageIndex = 0;
+const images = document.querySelectorAll('.thumbnail');
+
+function openLightbox() {
+  document.getElementById('lightbox').style.display = 'block';
+  showImage(0); // Show first image
+}
+
+function showImage(index) {
+  if (index >= 0 && index < images.length) {
+    currentImageIndex = index;
+    document.getElementById('lightboxImage').src = images[currentImageIndex].src;
+  }
+}
+
+function changeImage(index) {
+  if (index >= 0 && index < images.length) {
+    currentImageIndex = index;
+    document.getElementById('lightboxImage').src = images[currentImageIndex].src;
+  }
+}
+
+function changeImageDirection(direction) {
+  currentImageIndex += direction;
+  if (currentImageIndex < 0) {
+    currentImageIndex = images.length - 1;
+  } else if (currentImageIndex >= images.length) {
+    currentImageIndex = 0;
+  }
+  document.getElementById('lightboxImage').src = images[currentImageIndex].src;
+}
+  
+  function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+  
+  }
+  </script>
+    
+    <script>
+        function confirmLogout() {
+            const confirmLogout = confirm("Are You sure you want to Log out?");
+            if (confirmLogout) {
+                localStorage.removeItem('isLoggedIn');
+                
+                window.location.href = 'login.html';
+                } else {
+                    return;
+                }
+            }
+    </script>
+</body>
+</html>

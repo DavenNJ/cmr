@@ -1,0 +1,212 @@
+/*Basic Reset*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*body styling*/
+body {
+    font-family: Trebuchet MS, sans-serif;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to bottom left,#ffffff, #11ff00, #00ffff, #fff100, #ffffff);
+    background-size: 600% 600%;    
+    animation: gradientAnimation 15s ease infinite;
+    color: white;
+}
+
+/*Keyframes for the Body Animation*/
+@keyframes gradientAnimation {
+    0% {background-position: 0% 100%;}
+    50% {background-position: 100% 0%;}
+    100% {background-position: 0% 100%;}
+}
+
+/*Fixed-Size, Square container Styling*/
+.form-container {
+    width: 350px;
+    height: 490px;
+    padding: 30px;
+    background: linear-gradient(to bottom left ,#000,#333,#555,#333,#000);    
+    border-radius: 15px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #fff;
+    position: relative;
+    animation: form 10s ease infinite;
+    background-size: 600% 600%;
+}
+
+.form-container h2 {
+    margin-bottom:20px;
+    color:#11ff00;
+    font-size:50px;
+    animation: a 15s ease infinite;
+}
+/*Label Styling*/
+label {
+    display:block;
+    text-align:left;
+    margin:10px 0 5px;
+    color:white;
+    font-size: 15px;
+}
+
+/*Input Field Styling*/
+input[type="text"], input[type="password"] {
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+    border:2px solid #aaa;
+    border-radius: 5px;
+    outline: none;
+    font-size:16px;
+}
+
+/*Added Code*/
+input[type="text"]:focus, input[type="password"]:focus {
+    animation: inp 5s ease infinite;
+}
+
+/*Button Styling*/
+button {
+    width:100%;
+    padding:12px;
+    background-color:#11ff00;
+    color:black;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
+    font-family:Trebuchet MS, sans-serif;
+    animation: btn 15s ease infinite;
+}
+button:hover {
+    background-color:#e65c00;
+    animation: button 5s ease infinite;
+    font-weight: bold;
+}
+
+/*Error Message Styling*/
+#errorMessage {
+    color:lime;
+    margin-top:5px;
+    font-size:14px;
+    animation: a 15s ease infinite;
+}
+
+/*Show Password Container*/
+.show-password {
+    display:flex;
+    align-items:center;
+    margin-top:-10px;
+    margin-bottom:10px;
+    font-size:14px;
+}
+.show-password input[type="checkbox"] {
+    margin-right:5px;
+    animation: toggle 0.3s;
+}
+
+/*Added Code*/
+.show-password input[type="checkbox"]:checked{
+    animation-fill-mode: forwards;
+    accent-color:lime;
+    animation: checked 5s ease infinite;
+}
+
+/*Added Code*/
+a {
+    text-decoration:none;
+    color: lime;
+    animation: a 15s ease infinite;
+    font-weight: bold;
+}
+
+.cp {
+    color:white;
+}
+
+/*Added Code*/
+.checked {
+  animation: head 5s ease infinite;
+}    
+
+/*Added Code*/
+.focus-animation {
+  animation: head 5s ease infinite;
+  font-weight: bold;
+}
+
+/*Modified or Added codes*/
+@keyframes head {
+    0% {color:#11ff00;}
+    30% {color:#00eaff;}
+    50% {color:#fff100;}
+    80% {color:#00eaff;}
+    100% {color:#11ff00;}
+}
+
+@keyframes button {
+    0% {background:#11ff00;box-shadow: 0px 0px 15px #11ff00;}
+    30% {background:#00eaff;box-shadow: 0px 0px 15px #00eaff;}
+    50% {background:#fff100;box-shadow: 0px 0px 15px #fff100;}
+    80% {background:#00eaff;box-shadow: 0px 0px 15px #00eaff;}
+    100% {background:#11ff00;box-shadow: 0px 0px 15px #11ff00;}
+}
+
+@keyframes form {
+    0% {background-position: 0% 100%;}
+    50% {background-position: 100% 0%;}
+    100% {background-position: 0% 100%;}
+}
+
+@keyframes btn {
+    0% {}
+    50% {background:#00ffff;}
+    100% {}
+}
+@keyframes a {
+    0% {}
+    50% {color:#00ffff;}
+    100% {}
+}
+
+@keyframes inp {
+    0% {border:2px solid #11ff00;box-shadow: 0px 0px 15px #11ff00;}
+    30% {border:2px solid #00eaff;box-shadow: 0px 0px 15px #00eaff;}
+    50% {border:2px solid #fff100;box-shadow: 0px 0px 15px #fff100;}
+    80% {border:2px solid #00eaff;box-shadow: 0px 0px 15px #00eaff;}
+    100% {border:2px solid #11ff00;box-shadow: 0px 0px 15px #11ff00;}
+}
+
+@keyframes toggle {
+    0% {transform:scale(1);}
+    100% {transform: scale(1.1);}
+}
+@keyframes checked {
+    0% {accent-color: #11ff00;box-shadow: 0px 0px 15px #11ff00;}
+    30% {accent-color: #00eaff;box-shadow: 0px 0px 15px #00eaff;}
+    50% {accent-color: #fff100;box-shadow: 0px 0px 15px #fff100;}
+    80% {accent-color: #00eaff;box-shadow: 0px 0px 15px #00eaff;}
+    100% {accent-color: #11ff00;box-shadow: 0px 0px 15px #11ff00;}
+}
+
+/*Transition Animation*/
+#authForm {
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+#authForm.animate-out {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+#authForm.animate-in {
+  opacity: 1;
+  transform: scale(1);
+}    

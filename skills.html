@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills I'm Developing!</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+  <header><h1>Welcome to My Personal Website!</h1></header>
+  
+  <nav>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> <span>| HOME</span></a></li>
+            
+            <li class="dropdown"><a href="#" class="dropbtn" class="active"><i class="fas fa-info-circle"></i> <span>| ABOUT</span></a>           
+            <div class="dropdown-content">
+                <a href="skills.html" class="active"> Skills I'm Developing</a>
+                <a href="goals.html">My Goals as a Student</a>
+                <a href="funfacts.html">Fun Facts About Me</a>
+            </div>
+            </li>
+            
+            <li><a href="gallery.html"><i class="fas fa-image"></i> <span>| GALLERY</span></a></li>
+            <li><a href="contact.html"><i class="fas fa-address-card"></i> <span>| CONTACT</span></a></li>
+            <li><a href="javascript:void(0);" class="logout-button" onclick="confirmLogout()"><i class="fas fa-sign-out-alt"></i> <span>| LOG OUT</span></a>
+            </li>
+        </ul>
+    </nav>
+  
+  <section id="section2">
+  <section id="drop">
+    <h2>Skills I'm Developing</h2>
+    <p>As a student, I'm actively developing a diverse set of skills that reflects my passion in technology and beyond.</p>
+    
+    <section id="skills">
+      <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'IT')">Information Technology</button>
+        <button class="tablinks" onclick="openTab(event, 'Graphic Design')">Graphic Design</button>
+        <button class="tablinks" onclick="openTab(event, 'Public Speaking')">Public Speaking</button>
+        <button class="tablinks" onclick="openTab(event, 'Problem Solving')">Problem Solving</button>
+      </div>
+      
+      <div id="IT" class="tabcontent">
+        <h3>Information Technology</h3>
+        <ul>
+          <li>Mastering front-end web developing with <strong>HTML, CSS, and JavaScript</strong></li>
+          <li>Learning <strong>responsive design</strong> to create user friendly experinces across devices</li>
+          <li>Creating modern and accessible web interfaces</li>
+        </ul>
+      </div>
+      
+      <div id="Graphic Design" class="tabcontent" style="display: none;">
+        <h3>Graphic Design</h3>
+        <ul>
+          <li>Exploring visual design with tools like <strong>Adobe Illustrator and Canva</strong></li>
+          <li>Building skills in branding, layout, and digital illustration</li>
+          <li>Combining design with web development for cohesive digital presence</li>
+        </ul>
+      </div>
+      
+      <div id="Public Speaking" class="tabcontent" style="display: none;">
+        <h3>Public Speaking</h3>
+        <ul>
+          <li>Developing communication skills through workshops and presentations</li>
+          <li>Practicing storytelling skills to engage and inspire audiences</li>
+          <li>Strengthening my ability to share ideas clearly and confidently</li>
+        </ul>
+      </div>
+      
+      <div id="Problem Solving" class="tabcontent" style="display: none;">
+        <h3>Problem Solving and Critical Thinking</h3>
+        <ul>
+          <li>Enhancing my analytical skills through coding challenges and project-based learning</li>
+          <li>Focusing on efficient solutions and optimizing workflows in web development</li>
+          <li>Building a structured approach to tackling complex problems</li>
+        </ul>
+      </div>
+      
+    </section>
+  </section>
+    
+  <footer>
+        <p>&copy; 2024 Daven, All rights reserved.</p>
+    </footer>
+    <div class="footer-divider"></div>
+    
+    
+  
+  <script>
+  
+  function openTab(evt, tabName) {
+    const tabcontents = document.getElementsByClassName('tabcontent');
+    for(let i = 0; i < tabcontents.length; i++) {
+      tabcontents[i].style.display = 'none';
+    }
+      const tablinks = document.getElementsByClassName('tablinks');
+      for(let i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove('active');
+      }
+        //Added Code
+        const tabContent = document.getElementById(tabName);
+if (tabContent) {
+  tabContent.style.display = 'block';
+} else {
+  console.error(`Tab content element with ID "${tabName}" not found.`);
+}
+
+     evt.currentTarget.classList.add('active');
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.tablinks').click();
+  });
+  
+  </script>
+  
+  <script>
+        function confirmLogout() {
+            const confirmLogout = confirm("Are You sure you want to Log out?");
+            if (confirmLogout) {
+                localStorage.removeItem('isLoggedIn');
+                
+                window.location.href = 'login.html';
+                } else {
+                    return;
+                }
+            }
+    </script>
+</body>
+</html>

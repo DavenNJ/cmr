@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Personal Website</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body class="contact-background">
+
+<header><h1>Welcome to My Personal Website!</h1></header>
+  
+  <nav>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> <span>| HOME</span></a></li>
+            
+            <li class="dropdown"><a href="#" class="dropbtn"><i class="fas fa-info-circle"></i> <span>| ABOUT</span></a>           
+            <div class="dropdown-content">
+                <a href="skills.html"> Skills I'm Developing</a>
+                <a href="goals.html">My Goals as a Student</a>
+                <a href="funfacts.html">Fun Facts About Me</a>
+            </div>
+            </li>
+            
+            <li><a href="gallery.html"><i class="fas fa-image"></i> <span>| GALLERY</span></a></li>
+            <li><a href="contact.html" class="active"><i class="fas fa-address-card"></i> <span>| CONTACT</span></a></li>
+            <li><a href="javascript:void(0);" class="logout-button" onclick="confirmLogout()"><i class="fas fa-sign-out-alt"></i> <span>| LOG OUT</span></a>
+            </li>
+        </ul>
+    </nav>
+  
+  <section id="section2"></section>
+  <section id="contact">
+    <div class="contact-content">
+      <form id="contactForm" class="contact-form">
+        <h2>Let's Get in Touch!</h2>
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name">
+        <span class="error" id="nameError"></span>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Your Email">
+        <span class="error" id="emailError"></span>
+        <label for="message">Mesage:</label>
+        <textarea id="message" name="message" placeholder="Your Message"></textarea>
+        <span class="error" id="messageError"></span>
+        <button type="submit"><strong>Send Message</strong></button>
+      </form>
+      
+      <div class="contact-details">
+        <h3><center>Contact Me</center></h3>
+        <p><strong>Email Address:</strong><br>davenjungco1@gmail.com</p>
+        <hr width="75%" size="1" color="lime" align="left">
+        <p><strong>Phone Number:</strong> <br>09853488186</p>
+        <hr width="75%" size="1" color="lime" align="left">
+        <p><strong>Address:</strong> <br> Antique, Philippines</p>
+      </div>
+    </div>
+  </section>
+  <footer>
+        <p>&copy; 2024 Daven, All rights reserved.</p>
+    </footer>
+    <div class="footer-divider"></div>
+    
+    
+  
+  <script>
+  const form = document.querySelector('#contactForm');
+  const nameInput = document.querySelector('#name');
+  const emailInput = document.querySelector('#email');
+  const messageInput = document.querySelector('#message');
+  
+  form.addEventListener("submit", function(event) {
+    let isValid = true;
+    document.querySelectorAll(".error").forEach(function(errorElement) {
+      errorElement.textContent = "";
+    });
+    
+    if(nameInput.value.trim() === "") {
+      document.getElementById('nameError').textContent = "Name is required.";
+      isValid = false;
+    }
+    
+    if(emailInput.value.trim() === "") {
+      document.getElementById('emailError').textContent = "Email is required.";
+      isValid = false;
+    } else if(!validateEmail(emailInput.value)) {
+      document.getElementById('emailError').textContent = "Please enter a valid email.";
+      isValid = false;
+    }
+    
+    if(messageInput.value.trim() === "") {
+      document.getElementById('messageError').textContent = "Message is required.";
+      isValid = false;
+    }
+    
+    if(!isValid) {
+      event.preventDefault();
+    }
+  });
+  
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  }
+  </script>
+  
+  <script>
+  
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    
+    if(name === "" || email === "" || message === "") {
+      alert("Please fill in all fields before submitting.");
+      return;
+    }
+    alert("Your message has been sent successfully!");
+    
+    document.getElementById('contactForm').reset();
+  });
+  
+  </script>
+  <script>
+        function confirmLogout() {
+            const confirmLogout = confirm("Are You sure you want to Log out?");
+            if (confirmLogout) {
+                localStorage.removeItem('isLoggedIn');
+                
+                window.location.href = 'login.html';
+                } else {
+                    return;
+                }
+            }
+    </script>
+</body>
+</html>
